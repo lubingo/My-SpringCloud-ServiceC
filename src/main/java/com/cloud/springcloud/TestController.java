@@ -15,6 +15,9 @@ public class TestController {
 
     @RequestMapping(value = "/function" ,method = {RequestMethod.POST})
     public String  function(@RequestParam int a  , @RequestParam int b ){
+
+        //为了测试熔断
+        int dfd =   10000/0 ;
         logger.info("请求的参数为a={},b={}",a,b);
         logger.info("本方法返回两个数的和");
         return  "r="+(a+b) ;
