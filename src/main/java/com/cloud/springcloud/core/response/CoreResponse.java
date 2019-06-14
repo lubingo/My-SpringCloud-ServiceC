@@ -1,4 +1,4 @@
-package com.cloud.springcloud.core;
+package com.cloud.springcloud.core.response;
 
 import java.io.Serializable;
 

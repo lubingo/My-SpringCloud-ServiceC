@@ -1,7 +1,7 @@
 package com.cloud.springcloud.login.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.cloud.springcloud.core.CoreResponse;
+import com.cloud.springcloud.core.response.CoreResponse;
 import com.cloud.springcloud.login.service.LoginService;
 import com.cloud.springcloud.mail.MailUtil;
 import com.cloud.springcloud.redis.util.RedisUtils;

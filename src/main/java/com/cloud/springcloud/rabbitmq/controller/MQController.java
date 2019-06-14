@@ -1,7 +1,7 @@
 package com.cloud.springcloud.rabbitmq.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.cloud.springcloud.core.CoreResponse;
+import com.cloud.springcloud.core.response.CoreResponse;
 import com.cloud.springcloud.rabbitmq.service.MQservice;
 import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;

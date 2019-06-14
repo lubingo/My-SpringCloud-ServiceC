@@ -1,7 +1,7 @@
 package com.cloud.springcloud.login.service;
 
-import com.cloud.springcloud.core.CoreResponse;
-import com.cloud.springcloud.core.CoreResponseCode;
+import com.cloud.springcloud.core.response.CoreResponse;
+import com.cloud.springcloud.core.response.CoreResponseCode;
 import com.cloud.springcloud.login.dao.LoginDao;
 import com.cloud.springcloud.login.model.Login;
 import org.slf4j.Logger;

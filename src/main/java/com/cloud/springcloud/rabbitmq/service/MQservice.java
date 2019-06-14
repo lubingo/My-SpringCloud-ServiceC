@@ -2,8 +2,8 @@ package com.cloud.springcloud.rabbitmq.service;
 
 
 
-import com.cloud.springcloud.core.CoreResponse;
-import com.cloud.springcloud.core.CoreResponseCode;
+import com.cloud.springcloud.core.response.CoreResponse;
+import com.cloud.springcloud.core.response.CoreResponseCode;
 import com.cloud.springcloud.rabbitmq.dao.RabbitMQConsume;
 import com.cloud.springcloud.rabbitmq.dao.RabbitMQProduct;
 import com.cloud.springcloud.thread.ExecutorServiceUtil;
