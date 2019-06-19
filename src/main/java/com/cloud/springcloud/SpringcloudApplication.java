@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class SpringcloudApplication {
 
     public static void main(String[] args) {
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(SpringcloudApplication.class, args);
     }
     @Bean
