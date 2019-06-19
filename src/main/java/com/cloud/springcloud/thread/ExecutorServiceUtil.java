@@ -17,7 +17,7 @@ public class ExecutorServiceUtil  {
       return  executorServiceUtil ;
    }
    private ExecutorServiceUtil(){
-      executorService = Executors.newFixedThreadPool(ExecutorServiceConfig.EXECUTORSERVICESIZE);
+      executorService = Executors.newFixedThreadPool(ExecutorServiceConfig.EXECUTOR_SERVICE_SIZE);
    }
 
 }

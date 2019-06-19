@@ -87,12 +87,12 @@ public class LoginService {
         CoreResponse<Login> coreResponse = new CoreResponse();
 
         if(pwd.equals("") || pwd==null ){
-            coreResponse.setCode(CoreResponseCode.CODE_BUSINESS_ERROR_9);
+            coreResponse.setCode(CoreResponseCode.CODE_ERROR);
             coreResponse.setMessage("请输入密码！");
             return  coreResponse ;
         }
         if(str_Email.equals("") || str_Email==null ){
-            coreResponse.setCode(CoreResponseCode.CODE_BUSINESS_ERROR_9);
+            coreResponse.setCode(CoreResponseCode.CODE_ERROR);
             coreResponse.setMessage("请输入邮箱！");
             return  coreResponse ;
         }
@@ -103,11 +103,11 @@ public class LoginService {
                 coreResponse.setMessage("登录成功！");
                 coreResponse.setT(login);
             }else{
-                coreResponse.setCode(CoreResponseCode.CODE_BUSINESS_ERROR_9);
+                coreResponse.setCode(CoreResponseCode.CODE_ERROR);
                 coreResponse.setMessage("登录失败，密码错误！");
             }
         }else {
-            coreResponse.setCode(CoreResponseCode.CODE_BUSINESS_ERROR_9);
+            coreResponse.setCode(CoreResponseCode.CODE_ERROR);
             coreResponse.setMessage("该用户不存在！");
         }
 
