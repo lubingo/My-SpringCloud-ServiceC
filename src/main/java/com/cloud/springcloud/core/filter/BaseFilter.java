@@ -1,4 +1,4 @@
-package com.cloud.springcloud.core.config;
+package com.cloud.springcloud.core.filter;
 
 
 import org.apache.catalina.filters.RemoteIpFilter;

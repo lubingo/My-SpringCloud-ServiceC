@@ -18,4 +18,5 @@ public class SpringcloudApplication {
     public RestTemplate restTemplate(){
         return  new RestTemplate();
     }
+
 }

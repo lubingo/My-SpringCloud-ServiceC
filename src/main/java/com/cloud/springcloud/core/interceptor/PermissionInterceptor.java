@@ -27,8 +27,11 @@ public class PermissionInterceptor  extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;
-        boolean isCheck = handlerMethod.getMethodAnnotation(PermissionAnotation.class).isCheck() ;
-        boolean isAdmin = handlerMethod.getMethodAnnotation(PermissionAnotation.class).isAdmin() ;
+        boolean isCheck =false ,isAdmin=false;
+        if(handlerMethod.hasMethodAnnotation(PermissionAnotation.class)){
+            isCheck = handlerMethod.getMethodAnnotation(PermissionAnotation.class).isCheck() ;
+            isAdmin = handlerMethod.getMethodAnnotation(PermissionAnotation.class).isAdmin() ;
+        }
 
         if(isCheck){
              String email = request.getParameter("email") ;
