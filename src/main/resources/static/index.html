@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>这是一个系统</title>
+    <link href="public/css/all.css">
+    <style type="text/css">
+        　　* {margin:0;padding:0;}
+        　　#wrapper {height:1000px;}
+        　　#box {display:none;position:absolute;width:520px;height:300px;border:#f60 solid 2px;z-index:200;background:#fff;}
+        　　#closeBtn {position:absolute;right:10px;top:10px;cursor:pointer;}
+        　　#greybackground {background:#000;display:block;z-index:100;width:100%;position:absolute;top:0;left:0;}
+    </style>
+    <script src="public/js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function dl() {
+            $.ajax({
+                type: 'post',
+                url: '/ServiceC/login/loginSystem',
+                cache: false,
+                async: true,
+                data: 'email=' + $("#userId").val() + '&strPassword=' + $("#passWord").val(),
+                dataType: 'json',
+                processData: false,
+                success: function (data) {
+
+                    if (data.code == 0) {
+                        alert(000)
+                    } else {
+                        alert(data.message)
+                        window.location.reload();
+                    }
+                },
+                error: function (e) {
+                    console.log(e)//请求失败是执行这里的函数
+                }
+            });
+        }
+
+        function zc() {
+
+        }
+
+        $(function(){
+            var screenwidth,screenheight,mytop,getPosLeft,getPosTop
+            screenwidth = $(window).width();
+            screenheight = $(window).height();
+            //获取滚动条距顶部的偏移
+            mytop = $(document).scrollTop();
+            //计算弹出层的left
+            getPosLeft = screenwidth/2 - 260;
+            //计算弹出层的top
+            getPosTop = screenheight/2 - 150;
+            //css定位弹出层
+            $("#box").css({"left":getPosLeft,"top":getPosTop});
+            //当浏览器窗口大小改变时...
+            $(window).resize(function(){
+                screenwidth = $(window).width();
+                screenheight = $(window).height();
+                mytop = $(document).scrollTop();
+                getPosLeft = screenwidth/2 - 260;
+                getPosTop = screenheight/2 - 150;
+                $("#box").css({"left":getPosLeft,"top":getPosTop+mytop});
+            });
+
+            //当拉动滚动条时...
+            $(window).scroll(function(){
+                screenwidth = $(window).width();
+                screenheight = $(window).height();
+                mytop = $(document).scrollTop();
+                getPosLeft = screenwidth/2 - 260;
+                getPosTop = screenheight/2 - 150;
+                $("#box").css({"left":getPosLeft,"top":getPosTop+mytop});
+            });
+
+            //点击链接弹出窗口
+            $("#newUser").click(function(){
+                $("#box").fadeIn("fast");
+                //获取页面文档的高度
+                var docheight = $(document).height();
+                //追加一个层，使背景变灰
+                $("body").append("<div id='greybackground'></div>");
+                $("#greybackground").css({"opacity":"0.5","height":docheight});
+                return false;
+            });
+
+            //点击关闭按钮
+            $("#closeBtn").click(function() {
+                $("#box").hide();
+                //删除变灰的层
+                $("#greybackground").remove();
+                return false;
+            });
+
+        });
+    </script>
+
+</head>
+<body style="background-image: url(img/b.jpg) ;background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover; ">
+
+<div style="margin-top: 40% ; margin-left: 70%">
+
+    <span>用户名：</span><input type="text" id="userId" placeholder="邮箱地址">
+
+</div>
+<div style="margin-top: 1% ; margin-left: 70%">
+
+    <span>密&nbsp;&nbsp;&nbsp;码：</span><input type="password" id="passWord">
+
+</div>
+<div style="margin-top:10px ; margin-left: 75%">
+    <button onclick="dl()"> 登 录</button> &nbsp;&nbsp;&nbsp;&nbsp;
+    <button id= "newUser" onclick="zc()"> 注 册</button>
+</div>
+
+
+<div id="box">
+    　<span id="closeBtn">关闭</span>
+</div>
+
+
+</body>
+</html>

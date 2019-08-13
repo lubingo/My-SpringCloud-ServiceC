@@ -58,12 +58,13 @@ public class BaseInterceptor implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        registry.addInterceptor(new PermissionInterceptor(loginService)).addPathPatterns("/**") ;
+        registry.addInterceptor(new PermissionInterceptor(loginService)).addPathPatterns("/**").excludePathPatterns("/static" ) ;
+
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
     /**

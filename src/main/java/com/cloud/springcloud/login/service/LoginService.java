@@ -3,7 +3,7 @@ package com.cloud.springcloud.login.service;
 import com.cloud.springcloud.core.response.CoreResponse;
 import com.cloud.springcloud.core.response.CoreResponseCode;
 import com.cloud.springcloud.login.dao.LoginDao;
-import com.cloud.springcloud.login.model.Login;
+import com.cloud.springcloud.login.entity.Login;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class LoginService {
      * @param str_Email
      * @return
      */
-    public  Object  existLoginUser(String str_Email){
+    public  Login  existLoginUser(String str_Email){
         return loginDao.existsByEmail(str_Email);
     }
 

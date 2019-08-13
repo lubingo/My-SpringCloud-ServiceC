@@ -1,4 +1,4 @@
-package com.cloud.springcloud.login.model;
+package com.cloud.springcloud.login.entity;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -18,26 +18,13 @@ public class Login {
     @Column
     private  String  str_Token ;
     @Column
-    private  int n_Phone ;
+    private  String n_Phone ;
     @Column
     private  String str_Email ;
     @Column
     private String str_Role ;
     @Column
     private  String str_Password ;
-
-    public Login() {
-    }
-
-    public Login(int l_Id, String str_Name, String str_Token, int n_Phone, String str_Email, String str_Role , String str_Password) {
-        this.l_Id = l_Id;
-        this.str_Name = str_Name;
-        this.str_Token = str_Token;
-        this.n_Phone = n_Phone;
-        this.str_Email = str_Email;
-        this.str_Role = str_Role;
-        this.str_Password = str_Password ;
-    }
 
     public int getL_Id() {
         return l_Id;
@@ -63,11 +50,11 @@ public class Login {
         this.str_Token = str_Token;
     }
 
-    public int getN_Phone() {
+    public String getN_Phone() {
         return n_Phone;
     }
 
-    public void setN_Phone(int n_Phone) {
+    public void setN_Phone(String n_Phone) {
         this.n_Phone = n_Phone;
     }
 
@@ -95,17 +82,15 @@ public class Login {
         this.str_Password = str_Password;
     }
 
-    @Override
-    public String toString() {
-        return "Login{" +
-                "l_Id=" + l_Id +
-                ", str_Name='" + str_Name + '\'' +
-                ", str_Token='" + str_Token + '\'' +
-                ", n_Phone=" + n_Phone +
-                ", str_Email='" + str_Email + '\'' +
-                ", str_Role='" + str_Role + '\'' +
-                ", str_Password='" + str_Password + '\'' +
-                '}';
+    public Login(){}
+    public Login(int l_Id, String str_Name, String str_Token, String n_Phone, String str_Email, String str_Role, String str_Password) {
+        this.l_Id = l_Id;
+        this.str_Name = str_Name;
+        this.str_Token = str_Token;
+        this.n_Phone = n_Phone;
+        this.str_Email = str_Email;
+        this.str_Role = str_Role;
+        this.str_Password = str_Password;
     }
 
     /**
@@ -124,8 +109,5 @@ public class Login {
         return  jsonObject ;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
+
 }
