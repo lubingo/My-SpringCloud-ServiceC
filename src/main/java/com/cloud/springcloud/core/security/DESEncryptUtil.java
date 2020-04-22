@@ -8,8 +8,10 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 
-public   class EncrypDESUtil {
+public   class DESEncryptUtil {
 
+
+    private  DESEncryptUtil(){}
 
     /**
      * 使用DES对字符串加密
@@ -54,7 +56,7 @@ public   class EncrypDESUtil {
      * @param secretKey
      *            加密后的字节码
      */
-    public static String jdkBase64String(byte[] secretKey) {
+    private static String jdkBase64String(byte[] secretKey) {
         BASE64Encoder encoder = new BASE64Encoder();
         return encoder.encode(secretKey);
     }
@@ -64,7 +66,7 @@ public   class EncrypDESUtil {
      *
      * @throws IOException
      */
-    public static byte[] jdkBase64Decoder(String str) throws IOException {
+    private static byte[] jdkBase64Decoder(String str) throws IOException {
         BASE64Decoder decoder = new BASE64Decoder();
         return decoder.decodeBuffer(str);
     }
@@ -73,12 +75,12 @@ public   class EncrypDESUtil {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code" , 0);
-        jsonObject.put("message", "dfgdfg梵蒂冈反对的范德萨非凡哥：");
+        jsonObject.put("message", "dfgdfg梵343434343蒂冈反对的范德萨非凡哥：");
         String openId = jdkBase64String(desEncrypt(jsonObject.toJSONString(), "ludbqhqh"));
         System.out.println(openId);
 
-        String  dsa = "vlUZUbxXysFraT6UfYtaVfhcVXir92YMGcqyzYPjtwIg3NN7mn/49WHdG7MoFjwfcJlpC6CyQ5mA\n" +
-                "GXUJsaB1xS6Kk/7Qkwl1" ;
+        String  dsa = "vlUZUbxXysFraT6UfYtaVfhcVXir92YMDagIYDV/XwexsoHZbgB6qEDihf6Pk/ZUxI2pvw+qvHPC\n" +
+                "/9QWJ8rEpM7BRIXO2LQE4/Ts8mHYKzo=" ;
         String desDecrypt = desDecrypt(jdkBase64Decoder(dsa), "ludbqhqh");
         System.out.println(desDecrypt);
     }

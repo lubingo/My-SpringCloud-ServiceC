@@ -5,6 +5,7 @@ import sun.misc.BASE64Encoder;
 
 public class BASEUtil {
 
+    private BASEUtil(){}
     /**
      * BASE64解密
      *
